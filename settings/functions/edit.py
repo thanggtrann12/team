@@ -45,11 +45,7 @@ def edit_team(self):
         pass
     else:
         data = self.infor_container.currentItem().text()
-        self.team_name.setText(" ")
-        self.team_pin.setText(" ")
-        self.team_height.setText(" ")
-        self.team_weight.setText(" ")
-        self.team_long.setText(" ")
+
         self.infor_container.takeItem(self.infor_container.currentRow())
         dataPure, sizePure = split_data(data)
         self.team_name.setText(str(dataPure["Name"]))

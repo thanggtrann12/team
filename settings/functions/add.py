@@ -1,7 +1,6 @@
 from mqtt.client.client import publish
 from ui.component.msgAlert import msgPopUp
 from settings.container.log import success_log, failed_log
-
 payload = {
     "Name": "",
     "Size": "",
@@ -28,5 +27,10 @@ def add_team(self):
         payload["Pin"] = pin
         if (publish("add_team", str(payload))):
             msgPopUp("Team added successfully", "Success")
+            self.team_name.setText(" ")
+            self.team_pin.setText(" ")
+            self.team_height.setText(" ")
+            self.team_weight.setText(" ")
+            self.team_long.setText(" ")
         else:
             failed_log(self, "add", name, "mqtt failed")
