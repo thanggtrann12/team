@@ -30,6 +30,5 @@ team_list = {
     "13 C0 74 12": "LetBeBot",
     "F4 08 D7 2B": "Ravens",
     "13 11 D7 2B": "T-REX",
-    "D2 97 D7 2B": "Double one",
-    "11 08 D7 2B": "IAC"
+    "D2 97 D7 2B": "Double one"
 }
