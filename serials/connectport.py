@@ -15,19 +15,24 @@ def find_port(self):
 
 
 def connect_port(self):
-    ser = serial.Serial(self.portList.currentText(), 115200, timeout=1)
+    def find_between( s, first, last ):
+        try:
+            start = s.index( first ) + len( first )
+            end = s.index( last, start )
+            return s[start-1:end]
+        except ValueError:
+            return "" 
+    portName = find_between(self.portList.currentText(), "C", ":")
+    ser = serial.Serial(portName, 9600, timeout=1)
     if ser.is_open:
         self.portStatusLabel.setStyleSheet(
             "background-color: green; color :green;")
         self.portStatusLabel.setText("C")
         ser.close()
         read_card = threading.Thread(
-            target=card.handler, args=(self.portList.currentText(),))
+            target=card.handler, args=(portName,))
         read_card.start()
-
-        return True
     else:
         self.portStatusLabel.setStyleSheet(
             "background-color: red; color :green;")
         self.portStatusLabel.setText("D")
-        return False

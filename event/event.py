@@ -11,8 +11,8 @@ class readCard(Observer):
 
     def handler(self, agrs):
         global dataResend, read_flag
-        ser = serial.Serial(agrs, 9600, timeout=0.5)
+        ser = serial.Serial(agrs, 9600  , timeout=0.5)
         while (1):
+            print("Sendinggg")
             data = str(ser.read(13))
-            if data != str(b''):
-                dataResend.append(data)
+            dataResend.append(data[3:14])

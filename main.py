@@ -27,7 +27,7 @@ class UI(QtWidgets.QMainWindow):
             self.btn_edit_team.clicked.connect(lambda: edit_team(self))
             timer = QTimer(self)
             timer.timeout.connect(lambda: read_serial(self))
-            timer.start(1000)
+            timer.start(500)
         self.show()
 
 
