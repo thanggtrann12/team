@@ -15,7 +15,7 @@ def delete_team(self):
         pass
     else:
         self.infor_container.takeItem(self.infor_container.currentRow())
-        payload["Name"] = code
+        payload["Name"] = ""
         payload["Size"] = ""
         payload["Pin"] = ""
         if publish(code, str(payload)):

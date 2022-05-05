@@ -22,10 +22,10 @@ def add_team(self):
         self.infor_container.addItem(
             "Team Name: "+name + "  Team Size: "+size+"  Team Pin: "+pin+" V")
         success_log(self, "Add Team", name)
-        payload["Name"] = code
+        payload["Name"] = name
         payload["Size"] = size
         payload["Pin"] = pin
-        if (publish("add_team", str(payload))):
+        if (publish(code, str(payload))):
             msgPopUp("Team added successfully", "Success")
             self.team_name.setText(" ")
             self.team_pin.setText(" ")
